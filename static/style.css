@@ -1,0 +1,118 @@
+:root {
+    --bg-color: #000000;
+    --card-bg: #161616;
+    --accent-red: #E50914;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --success-green: #46d369;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Header Styling */
+header h1 {
+    font-size: 3rem;
+    letter-spacing: -1px;
+    margin: 0;
+}
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+.highlight { color: var(--accent-red); }
+
+/* Input Section */
+.controls {
+    display: flex;
+    gap: 15px;
+}
+input {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 200px;
+    transition: border-color 0.3s;
+}
+input:focus { outline: none; border-color: var(--accent-red); }
+
+button {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+button:hover { background: #f40612; transform: translateY(-2px); }
+
+/* Stats Cards */
+.insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-5px); border-color: #555; }
+.card h3 { color: var(--text-secondary); margin: 0 0 10px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
+.card p { font-size: 2rem; margin: 0; font-weight: 700; }
+
+/* Chart Area */
+#chart-wrapper {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    position: relative; /* For tooltip positioning */
+}
+
+/* D3 Tooltip Styles */
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: none; /* Hidden by default */
+}
+
+/* Educational Section */
+.methodology {
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+.methodology strong { color: white; }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketVision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Market<span class="highlight">Vision</span></h1>
+            <p>Quantitative Volatility & Trend Analysis Engine</p>
+        </header>
+
+        <div class="controls">
+            <input type="text" id="tickerInput" placeholder="Ticker (e.g. NFLX)" value="NVDA">
+            <button onclick="fetchData()">Generate Analysis</button>
+        </div>
+
+        <div class="insights">
+            <div class="card">
+                <h3>Latest Close</h3>
+                <p id="price-display">--</p>
+            </div>
+            <div class="card">
+                <h3>20-Day Trend</h3>
+                <p id="trend-display" style="color: var(--success-green);">--</p>
+            </div>
+            <div class="card">
+                <h3>Volatility Risk</h3>
+                <p id="volatility-display">--</p>
+            </div>
+        </div>
+
+        <div id="chart-wrapper">
+            <div id="tooltip" class="tooltip"></div>
+            <div id="chart-container"></div>
+        </div>
+
+        <div class="methodology">
+            <h3>Model Methodology</h3>
+            <p>This engine utilizes a <strong>Rolling Window</strong> statistical approach. The <span style="color:#666">dashed line</span> represents the <strong>Simple Moving Average (SMA-20)</strong>, acting as a baseline for trend direction. The <span style="color:rgba(229, 9, 20, 0.4)">Red Zone</span> represents the <strong>Bollinger Bands (2σ)</strong>, a volatility envelope. When price action breaks this envelope, it statistically indicates an overextended market state.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
